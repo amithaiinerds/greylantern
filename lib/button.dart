@@ -9,38 +9,42 @@ class CustomButton
 
 	SizedBox button(context, text, isActive, popUp)
 	{    
-      var width = MediaQuery.of(context).size.width / 2.6;
-		  var height = MediaQuery.of(context).size.height / 14;
+        var width = MediaQuery.of(context).size.width / 2.6;
+		var height = MediaQuery.of(context).size.height / 14;
 
 		return SizedBox
 		(
-			width: width,
-			height: height,
-     child: ElevatedButton
-		(
-			child: Text
+			width: 144,
+			height: 46,
+			child: ElevatedButton
 			(
-				text,
-				style: const TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.w400)
-			),
-			style: ButtonStyle
-			(
-				foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-				backgroundColor: MaterialStateProperty.all<Color>(isActive ? CustomColors.orangeActive : CustomColors.orange),
-				shape: MaterialStateProperty.all<RoundedRectangleBorder>
+				child: Text
 				(
-					RoundedRectangleBorder
+					text,
+					style: const TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.w400)
+				),
+				style: ButtonStyle
+				(
+					foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+					backgroundColor: MaterialStateProperty.all<Color>(isActive ? CustomColors.orangeActive : CustomColors.orange),
+					shape: MaterialStateProperty.all<RoundedRectangleBorder>
 					(
-						borderRadius: BorderRadius.circular(10),
-						side: BorderSide(color: isActive ? CustomColors.orangeBorderActive : CustomColors.orangeBorder)
+						RoundedRectangleBorder
+						(
+							borderRadius: BorderRadius.circular(10),
+							side: BorderSide(color: isActive ? CustomColors.orangeBorderActive : CustomColors.orangeBorder)
+						)
 					)
-				)
-			),
-			onPressed: () async
-			{
-				_popupBox.warningSigns(context);
-			}
-		));
+				),
+				onPressed: () async
+				{
+					if(text == "Warning signs?")
+					{
+							_popupBox.warningSigns(context);
+					}
+				}
+			)
+		);
 	}
 
 	Widget briefText(text, isactive, context, popUpText)

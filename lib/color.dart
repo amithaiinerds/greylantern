@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomColors
 {
+  static Color white                = const Color(0xffFFFFFF);
   static Color connectorColor       = const Color(0xffE1E2E3);
   static Color connectorActiveColor = const Color(0xff3F8BDE);
   static Color orange               = const Color(0xffFFF7EB);

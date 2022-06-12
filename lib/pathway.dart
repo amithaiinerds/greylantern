@@ -37,7 +37,7 @@ class _PathWayState extends State<PathWay>
 	bool right = false;
 
 	@override
-  	Widget build(BuildContext context) 
+	Widget build(BuildContext context) 
 	{
 		var height = MediaQuery.of(context).size.height;	
 		var width = MediaQuery.of(context).size.width;
@@ -53,80 +53,89 @@ class _PathWayState extends State<PathWay>
 					(
 						children: 
 						[
-							CustomPaint(painter: LineDashedPainter(case2 ? CustomColors.blueBorderActive : CustomColors.grey, 10, (height / 200), 10, height / 1.5)),
-							Row
+							// CustomPaint(painter: LineDashedPainter(case2 ? CustomColors.blueBorderActive : CustomColors.grey, 10, (height / 200), 10, height / 1.5)),
+							CustomPaint(painter: LineDashedPainter(case2 ? CustomColors.blueBorderActive : CustomColors.grey, 10, (height / 200), 10, 400)),
+							Stack
 							(
-								mainAxisAlignment: MainAxisAlignment.center,
 								children: 
 								[
-									CustomPaint(painter: LineDashedPainter(case1 ? Colors.blue : CustomColors.grey, -(width / 6), 0, -(width / 6), height * .66)),
-									CustomPaint(painter: LineDashedPainter(case1 ? Colors.blue : CustomColors.grey, width / 6 , 0, -(width / 6) , 0)),
-									Column
+									Row
 									(
-										crossAxisAlignment: CrossAxisAlignment.start,
+										mainAxisAlignment: MainAxisAlignment.center,
 										children: 
 										[
-											binaryText("Yes", width),
-											const SizedBox(height: 5),
-											GestureDetector
-											(
-												child: Container
+											// CustomPaint(painter: LineDashedPainter(case1 ? Colors.blue : CustomColors.grey, -(width / 5), 0, -(width / 5), height * .66)),
+											CustomPaint(painter: LineDashedPainter(case1 ? Colors.blue : CustomColors.grey, -(width / 5), 0, -(width / 5), 393)),
+											CustomPaint(painter: LineDashedPainter(case1 ? Colors.blue : CustomColors.grey, width / 5 , 0, -(width / 5) , 0)),
+											Center(child: _customButton.button(context, "Warning signs?", case1 == true ? case1 : case2, context))
+										]
+									),
+									Positioned
+									(
+										left: width * 0.2,
+										child: Column
+										(
+											crossAxisAlignment: CrossAxisAlignment.start,
+											children: 
+											[
+												binaryText("Yes", width),
+												const SizedBox(height: 5),
+												GestureDetector
 												(
-													margin: EdgeInsets.only(right: 10, bottom: (height / 50)),
-													width: 15,
-													height: 15,
-													decoration: BoxDecoration
+													child: Container
 													(
-														color: case1 ?  CustomColors.blue : Colors.white,
-														borderRadius: BorderRadius.circular(15),
-														border: Border.all
+														// margin: EdgeInsets.only(right: 10, bottom: (height / 50)),
+														width: 15,
+														height: 15,
+														decoration: BoxDecoration
 														(
-															width: 2,
-															color: case1? CustomColors.blueBorderActive : CustomColors.grey,
-															style: BorderStyle.solid,
+															color: case1 ?  CustomColors.blue : Colors.white,
+															borderRadius: BorderRadius.circular(15),
+															border: Border.all
+															(
+																width: 2,
+																color: case1? CustomColors.blueBorderActive : CustomColors.grey,
+																style: BorderStyle.solid,
+															),
 														),
 													),
-												),
-												onTap: ()
-												{
-													print("1");
-													setState(()
+													onTap: ()
 													{
-														left = true;
-														case1 = true;
-														case2 = false;
-														case3 = false;
-														case4 = false;
-														case5 = false;
-														case6 = false;
-														case7 = false;
-														case8 = false;
-														case9 = false;
-														case10 = false;
-														case11 = false;
-														case12 = false;
-														case13 = false;
-														case14 = false;
-														case15 = false;
-														case16 = false;
-														left = true;
-														right = false;
-													});
-												},
-											)
-										],
-									),
-									Center(child: _customButton.button(context, "Warning Signs?", case1 == true ? case1 : case2, context))
+														setState(()
+														{
+															left = true;
+															case1 = true;
+															case2 = false;
+															case3 = false;
+															case4 = false;
+															case5 = false;
+															case6 = false;
+															case7 = false;
+															case8 = false;
+															case9 = false;
+															case10 = false;
+															case11 = false;
+															case12 = false;
+															case13 = false;
+															case14 = false;
+															case15 = false;
+															case16 = false;
+															left = true;
+															right = false;
+														});
+													},
+												)
+											]
+										),
+									)
 								],
 							),
-							// connector(width, case2, "case2", "Yes"),
-							// connector(width, isTrue, value, text),
 							GestureDetector
 							(
 								child: Container
 								(
 									// color: Colors.red,
-									margin:  EdgeInsets.only(top: 10),
+									margin:  const EdgeInsets.only(top: 10),
 									width: 125,
 									height: 40,
 									child: Row
@@ -134,7 +143,7 @@ class _PathWayState extends State<PathWay>
 										mainAxisAlignment: MainAxisAlignment.center,
 										children: 
 										[
-											Text("Yes", style: TextStyle(fontSize: 8),),
+											const Text("Yes", style: const TextStyle(fontSize: 8),),
 											const SizedBox(width: 5),
 											Container
 											(
@@ -182,76 +191,88 @@ class _PathWayState extends State<PathWay>
 							const SizedBox(height: 40),
 							button2("Address any contributing factors", width, case2, "3"),
 							const SizedBox(height: 40),
-							CustomPaint(painter: LineDashedPainter(case4 ? CustomColors.blueBorderActive : CustomColors.grey, 10, height / 20, 10, height  / 2)),
-							Row
+							// CustomPaint(painter: LineDashedPainter(case4 ? CustomColors.blueBorderActive : CustomColors.grey, 10, height / 20, 10, height  / 2)),
+							CustomPaint(painter: LineDashedPainter(case4 ? CustomColors.blueBorderActive : CustomColors.grey, 10, height / 20, 10, 250)),
+							Stack
 							(
-								mainAxisAlignment: MainAxisAlignment.center,
 								children: 
 								[
-									CustomPaint(painter: LineDashedPainter(case1 || case3 ? CustomColors.blueBorderActive : CustomColors.grey, -(width / 6), 0, -(width / 6), height * .38)),
-									CustomPaint(painter: LineDashedPainter(case3 ? CustomColors.blueBorderActive : CustomColors.grey, width / 6 , 0, -(width / 6) , 0)),
-									Column
+									Row
 									(
-										crossAxisAlignment: CrossAxisAlignment.start,
+										mainAxisAlignment: MainAxisAlignment.center,
 										children: 
 										[
-											binaryText("No", width),
-											const SizedBox(height: 5),
-											GestureDetector
-											(
-												child: Container
-												(
-													margin: EdgeInsets.only(right: 10, bottom: (height / 50)),
-													width: 15,
-													height: 15,
-													decoration: BoxDecoration
-													(
-														color :case3 ?  CustomColors.blue : Colors.white,
-														borderRadius: BorderRadius.circular(15),
-														border: Border.all
-														(
-															width: 2,
-															color: case3 ?  CustomColors.blueBorderActive : CustomColors.grey,
-															style: BorderStyle.solid,
-														),
-													),
-												),
-												onTap: ()
-												{
-													print("3");
-													setState(()
-													{
-														case1 = false;
-														case2 = true;
-														case3 = true;
-														case4 = false;
-														case5 = false;
-														case6 = false;
-														case7 = false;
-														case8 = false;
-														case9 = false;
-														case10 = false;
-														case11 = false;
-														case12 = false;
-														case13 = false;
-														case14 = false;
-														case15 = false;
-														case16 = false;
-														left = true;
-														right = false;
-													});
-												},
-											)
+											// CustomPaint(painter: LineDashedPainter(case1 || case3 ? CustomColors.blueBorderActive : CustomColors.grey, -(width / 5), 0, -(width / 5), height * .38)),
+											CustomPaint(painter: LineDashedPainter(case1 || case3 ? CustomColors.blueBorderActive : CustomColors.grey, -(width / 5), 0, -(width / 5), 220)),
+											CustomPaint(painter: LineDashedPainter(case3 ? CustomColors.blueBorderActive : CustomColors.grey, width / 5 , 0, -(width / 5) , 0)),
+											Center(child: _customButton.button(context, "Concerns persit?", case2, context)),
 										],
 									),
-									Center(child: _customButton.button(context, "Concern persits?", case2, context),)
+									Positioned
+									(
+										left: width * 0.2,
+										// to: 1,
+										child: Column
+										(
+											crossAxisAlignment: CrossAxisAlignment.start,
+											children: 
+											[
+												binaryText("No", width),
+												const SizedBox(height: 5),
+												GestureDetector
+												(
+													child: Container
+													(
+														// margin: EdgeInsets.only(right: 1),
+														width: 15,
+														height: 15,
+														decoration: BoxDecoration
+														(
+															color :case3 ?  CustomColors.blue : Colors.white,
+															borderRadius: BorderRadius.circular(15),
+															border: Border.all
+															(
+																width: 2,
+																color: case3 ?  CustomColors.blueBorderActive : CustomColors.grey,
+																style: BorderStyle.solid,
+															),
+														),
+													),
+													onTap: ()
+													{
+														setState(()
+														{
+															case1 = false;
+															case2 = true;
+															case3 = true;
+															case4 = false;
+															case5 = false;
+															case6 = false;
+															case7 = false;
+															case8 = false;
+															case9 = false;
+															case10 = false;
+															case11 = false;
+															case12 = false;
+															case13 = false;
+															case14 = false;
+															case15 = false;
+															case16 = false;
+															left = true;
+															right = false;
+														});
+													},
+												)
+											],
+										),
+									)
 								],
 							),
 							GestureDetector
 							(
 								child: Container
 								(
-									margin:  EdgeInsets.only(top: 10),
+									margin:  const EdgeInsets.only(top: 10),
 									width: 125,
 									height: 40,
 									child: Row
@@ -259,7 +280,7 @@ class _PathWayState extends State<PathWay>
 										mainAxisAlignment: MainAxisAlignment.center,
 										children: 
 										[
-											Text("Yes", style: TextStyle(fontSize: 8),),
+											const Text("Yes", style: const TextStyle(fontSize: 8),),
 											const SizedBox(width: 5),
 											Container
 											(
@@ -303,146 +324,171 @@ class _PathWayState extends State<PathWay>
 								}
 							),
 							const SizedBox(height: 40),
-							button2("Modify Driving Habits", width, case4, "4"),
+							button2("Modify driving habits", width, case4, "4"),
 							const SizedBox(height: 40),
-							CustomPaint(painter: LineDashedPainter(case6 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, (height / 85), 10, height / 2)),
-							Row
+							// CustomPaint(painter: LineDashedPainter(case6 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, (height / 85), 10, height / 2)),
+							CustomPaint(painter: LineDashedPainter(case6 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, (height / 85), 10, 230)),
+							Stack
 							(
-								mainAxisAlignment: MainAxisAlignment.center,
 								children: 
 								[
-									CustomPaint(painter: LineDashedPainter(case1 || case3 || case5 ? CustomColors.blueBorderActive : CustomColors.grey, -(width / 6), 0, -(width / 6), height * .58)),
-									CustomPaint(painter: LineDashedPainter(case5 ? CustomColors.blueBorderActive : CustomColors.grey, width / 6 , 0, -(width / 6) , 0)),
-									Column
+									Row
 									(
-										crossAxisAlignment: CrossAxisAlignment.start,
+										mainAxisAlignment: MainAxisAlignment.center,
 										children: 
 										[
-											binaryText("No", width),
-											const SizedBox(height: 5),
-											GestureDetector
-											(
-												child: Container
-												(
-													margin: EdgeInsets.only(right: 10, bottom: (height / 50)),
-													width: 15,
-													height: 15,
-													decoration: BoxDecoration
-													(
-														color : case5 ? CustomColors.blueActive : Colors.white,
-														borderRadius: BorderRadius.circular(15),
-														border: Border.all
-														(
-															width: 2,
-															color: case5 ? CustomColors.blueBorderActive : CustomColors.grey,
-															style: BorderStyle.solid,
-														),
-													),
-												),
-												onTap: ()
-												{
-													print("5");
-													setState(()
-													{
-														case1 = false;
-														case2 = true;
-														case3 = false;
-														case4 = true;
-														case5 = true;
-														case6 = false;
-														case7 = false;
-														case8 = false;
-														case9 = false;
-														case10 = false;
-														case11 = false;
-														case12 = false;
-														case13 = false;
-														case14 = false;
-														case15 = false;
-														case16 = false;
-														left = true;
-														right = false;
-
-													});
-												}
-											)
+											// CustomPaint(painter: LineDashedPainter(case1 || case3 || case5 ? CustomColors.blueBorderActive : CustomColors.grey, -(width / 5), 0, -(width / 5), height * .58)),
+											CustomPaint(painter: LineDashedPainter(case1 || case3 || case5 ? CustomColors.blueBorderActive : CustomColors.grey, -(width / 5), 0, -(width / 5), 358)),
+											CustomPaint(painter: LineDashedPainter(case5 ? CustomColors.blueBorderActive : CustomColors.grey, width / 5 , 0, -(width / 5) , 0)),
+											Center(child: _customButton.button(context, "Concerns persit?", case5 ? case5 : case6, context))
 										],
 									),
-									Center(child: _customButton.button(context, "Concern persits?", case5 ? case5 : case6, context))
-								],
+									Positioned
+									(
+										left: width * 0.2,
+										child: Column
+										(
+											crossAxisAlignment: CrossAxisAlignment.start,
+											children: 
+											[
+												binaryText("No", width),
+												const SizedBox(height: 5),
+												GestureDetector
+												(
+													child: Container
+													(
+														// margin: EdgeInsets.only(right: 10, bottom: (height / 50)),
+														width: 15,
+														height: 15,
+														decoration: BoxDecoration
+														(
+															color : case5 ? CustomColors.blueActive : Colors.white,
+															borderRadius: BorderRadius.circular(15),
+															border: Border.all
+															(
+																width: 2,
+																color: case5 ? CustomColors.blueBorderActive : CustomColors.grey,
+																style: BorderStyle.solid,
+															),
+														),
+													),
+													onTap: ()
+													{
+														print("5");
+														setState(()
+														{
+															case1 = false;
+															case2 = true;
+															case3 = false;
+															case4 = true;
+															case5 = true;
+															case6 = false;
+															case7 = false;
+															case8 = false;
+															case9 = false;
+															case10 = false;
+															case11 = false;
+															case12 = false;
+															case13 = false;
+															case14 = false;
+															case15 = false;
+															case16 = false;
+															left = true;
+															right = false;
+
+														});
+													}
+												)
+											],
+										),
+									)
+								]
 							),
 							// SizedBox(height: 40),
 							connector(width, case6, "case6", "Yes"),
 							const SizedBox(height: 40),
-							button2("Review Approaches", width, case6, "6"),
+							button2("Review approaches", width, case6, "6"),
 							const SizedBox(height: 40),
-							CustomPaint(painter: LineDashedPainter(case8 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, (height / 60), 10, height  / 4)),
-							Row
+							// CustomPaint(painter: LineDashedPainter(case8 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, (height / 60), 10, height  / 4)),
+							CustomPaint(painter: LineDashedPainter(case8 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, (height / 60), 10, 150)),
+							Stack
 							(
-								mainAxisAlignment: MainAxisAlignment.center,
 								children: 
 								[
-									button2("Discuss driving risks with seniors", width, case6, "6"),
-									CustomPaint(painter: LineDashedPainter(case11 ? CustomColors.blueBorderActive : CustomColors.grey, width / 3.9, 0, 0, 0)),
-									GestureDetector
+									Row
 									(
+										mainAxisAlignment: MainAxisAlignment.center,
+										children: 
+										[
+											button2("Discuss driving risks with senior", width, case6, "6"),
+											CustomPaint(painter: LineDashedPainter(case11 ? CustomColors.blueBorderActive : CustomColors.grey, width / 4, 0, 0, 0)),
+											// CustomPaint(painter: LineDashedPainter(case11 ? CustomColors.blueBorderActive :  CustomColors.grey, width / 4, 0, width / 4, height * 0.22)),
+											CustomPaint(painter: LineDashedPainter(case11 ? CustomColors.blueBorderActive :  CustomColors.grey, width / 4, 0, width / 4, 136)),
+										],
+									),
+									Positioned
+									(
+										right: width * 0.1,
 										child: Column
 										(
+											crossAxisAlignment: CrossAxisAlignment.center,
 											children: 
 											[
-												const Padding(padding: EdgeInsets.only(left: 10, bottom: 10), child:  Text("Agrees to stop", style:  TextStyle(fontSize: 8),)),
-												Container
+												const Text("Agrees to stop", style:  TextStyle(fontSize: 9, color: Colors.black, fontWeight: FontWeight.w400)),
+												const SizedBox(height: 5),
+												GestureDetector
 												(
-													margin: const EdgeInsets.only(left: 10, bottom: 20),
-													width: 15,
-													height: 15,
-													decoration: BoxDecoration
+													child: Container
 													(
-														color :case11 ? CustomColors.blue : Colors.white,
-														borderRadius: BorderRadius.circular(15),
-														border: Border.all
+														// margin: EdgeInsets.only(right: 1),
+														width: 15,
+														height: 15,
+														decoration: BoxDecoration
 														(
-															width: 2,
-															color: case11 ? CustomColors.blueBorderActive : CustomColors.grey,
-															style: BorderStyle.solid,
+															color :case11 ? CustomColors.blue : Colors.white,
+															borderRadius: BorderRadius.circular(15),
+															border: Border.all
+															(
+																width: 2,
+																color: case11 ? CustomColors.blueBorderActive : CustomColors.grey,
+																style: BorderStyle.solid,
+															),
 														),
 													),
-												),
+													onTap: ()
+													{
+														setState(()
+														{
+															case1 = false;
+															case5 = false;
+															case4 = true;
+															case2 = true;
+															case6 = true;
+															case7 = false;
+															case8 = false;
+															case9 = false;
+															case10 = false;
+															case11 = true;
+															case12 = false;
+															case13 = false;
+															case14 = false;
+															case15 = false;
+															case16 = false;
+															right = true;
+															left = false;
+														});
+													},
+												)
 											],
 										),
-										onTap: ()
-										{
-											setState(()
-											{
-												case1 = false;
-												case5 = false;
-												case4 = true;
-												case2 = true;
-												case6 = true;
-												case7 = false;
-												case8 = false;
-												case9 = false;
-												case10 = false;
-												case11 = true;
-												case12 = false;
-												case13 = false;
-												case14 = false;
-												case15 = false;
-												case16 = false;
-												right = true;
-												left = false;
-
-											});
-										}
-									),
-									CustomPaint(painter: LineDashedPainter(case11 ? CustomColors.blueBorderActive :  CustomColors.grey, width / 9.3, 0, width / 9.3, height * 0.22)),
-								],
+									)
+								]
 							),
 							GestureDetector
 							(
 								child: Container
 								(
-									margin:  EdgeInsets.only(top: 10, right: 50),
+									margin:  const EdgeInsets.only(top: 10, right: 50),
 									width: 200,
 									height: 40,
 									child: Row
@@ -450,7 +496,7 @@ class _PathWayState extends State<PathWay>
 										mainAxisAlignment: MainAxisAlignment.center,
 										children: 
 										[
-											Text("Continues to drive", style: TextStyle(fontSize: 8)),
+											const Text("Continues to drive", style: const TextStyle(fontSize: 8)),
 											const SizedBox(width: 5),
 											Container
 											(
@@ -495,133 +541,147 @@ class _PathWayState extends State<PathWay>
 								}
 							),
 							const SizedBox(height: 40),
-							CustomPaint(painter: LineDashedPainter(case10 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, height / 60, 10, height * 0.23)),
-							Row
+							// CustomPaint(painter: LineDashedPainter(case10 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, height / 60, 10, height * 0.23)),
+							CustomPaint(painter: LineDashedPainter(case10 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, height / 60, 10, 150)),
+							Stack
 							(
-								mainAxisAlignment: MainAxisAlignment.center,
 								children: 
 								[
-									CustomPaint(painter: LineDashedPainter(case1 || case3 || case5 || case7 ? CustomColors.blueBorderActive : CustomColors.grey, -(width / 14), 0, -(width / 14), height * .25)),
-									// CustomPaint(painter: LineDashedPainter(case7 ? CustomColors.blueBorderActive : CustomColors.grey, width / 10 , 0, -(width / 19) , 0)),
-									CustomPaint(painter: LineDashedPainter(case7 ? CustomColors.blueBorderActive : CustomColors.grey, width / 10 , 0, -(width / 14) , 0)),
-
-									Column
+									Row
 									(
+										mainAxisAlignment: MainAxisAlignment.center,
 										children: 
 										[
-											const Padding(padding: EdgeInsets.only(right: 15), child: Text("Pass", style: TextStyle(fontSize: 8),)),
-											const SizedBox(height: 5),
-											GestureDetector
-											(
-												child: Container
-												(
-													margin: EdgeInsets.only(right: 1, bottom: (height / 50)),
-													width: 15,
-													height: 15,
-													decoration: BoxDecoration
-													(
-														color :case7 ? CustomColors.blueActive : Colors.white,
-														borderRadius: BorderRadius.circular(15),
-														border: Border.all
-														(
-															width: 2,
-															color: case7 ? CustomColors.blueBorderActive : CustomColors.grey,
-															style: BorderStyle.solid,
-														),
-													),
-												),
-												onTap: ()
-												{
-													setState(()
-													{
-														case1 = false;
-														case2 = true;
-														case3 = false;
-														case4 = true;
-														case5 = false;
-														case6 = true;
-														case7 = true;
-														case8 = true;
-														case9 = false;
-														case10 = false;
-														case11 = false;
-														case12 = false;
-														case13 = false;
-														case14 = false;
-														case15 = false;
-														case16 = false;
-														left = true;
-														right = false;
-													});
-												}
-											)
-										],
-									),									
-									button2("Conduct informal driving assessment",  width, case8, "7"),
-									CustomPaint(painter: LineDashedPainter(case13 ? CustomColors.blueBorderActive : CustomColors.grey, width / 4.5, 0, 0, 0)),
-									Column
-									(
-										children: 
-										[
-											Container
-											(
-												margin: const EdgeInsets.only(left: 10, bottom: 5),
-												// width: 65,
-												height: 10, child: Text("Agrees  to  stop", style: TextStyle(fontSize: 8),)),
-											GestureDetector
-											(
-												child: Container
-												(
-													margin: const EdgeInsets.only(left: 30, bottom: 18),
-													width: 15,
-													height: 15,
-													decoration: BoxDecoration
-													(
-														color :case13 ? CustomColors.blueActive : Colors.white,
-														borderRadius: BorderRadius.circular(15),
-														border: Border.all
-														(
-															width: 2,
-															color: case13 ? CustomColors.blueBorderActive : CustomColors.grey,
-															style: BorderStyle.solid,
-														),
-													),
-												),
-												onTap: ()
-												{
-													setState(()
-													{
-														case1 = false;
-														case2 = true;
-														case3 = false;
-														case4 = true;
-														case5 = false;
-														case6 = true;
-														case7 = false;
-														case8 = true;
-														case9 = false;
-														case10 = false;
-														case11 = false;
-														case12 = false;
-														case13 = true;
-														case14 = false;
-														case15 = false;
-														case16 = false;
-														right = true;
-														left = false;
-													});
-												}
-											)
+											// CustomPaint(painter: LineDashedPainter(case7 ? Colors.blue : CustomColors.grey, -(width / 5), 0, -(width / 5), height * .9)),
+											CustomPaint(painter: LineDashedPainter(case1 || case3 || case5 || case7 ? Colors.blue : CustomColors.grey, -(width / 5), 0, -(width / 5), 135)),
+											CustomPaint(painter: LineDashedPainter(case7 ? Colors.blue : CustomColors.grey, width / 5 , 0, -(width / 5) , 0)),
+											button2("Conduct informal driving assessment",  width, case8, "7"),
+											CustomPaint(painter: LineDashedPainter(case13 ? CustomColors.blueBorderActive : CustomColors.grey, width / 4, 0, 0, 0)),
+											CustomPaint(painter: LineDashedPainter(case11 || case13 ? CustomColors.blueBorderActive :  CustomColors.grey, width / 4, 0, width / 4, 136))
+											// CustomPaint(painter: LineDashedPainter(case11 || case13 ? CustomColors.blueBorderActive :  CustomColors.grey, width / 4, 0, width / 4, height * 0.22))
 										]
 									),
-									CustomPaint(painter: LineDashedPainter(case11 || case13 ? CustomColors.blueBorderActive :  CustomColors.grey, width / 16, 0, width / 16, height * 0.22))
-								]
+									Positioned
+									(
+										left: width * 0.2,
+										child: Column
+										(
+											crossAxisAlignment: CrossAxisAlignment.center,
+											children: 
+											[
+												const Text("Pass", style: const TextStyle(fontSize: 8),),
+												const SizedBox(height: 5),
+												GestureDetector
+												(
+													child: Container
+													(
+														// margin: EdgeInsets.only(right: 1, bottom: (height / 50)),
+														width: 15,
+														height: 15,
+														decoration: BoxDecoration
+														(
+															color :case7 ? CustomColors.blueActive : Colors.white,
+															borderRadius: BorderRadius.circular(15),
+															border: Border.all
+															(
+																width: 2,
+																color: case7 ? CustomColors.blueBorderActive : CustomColors.grey,
+																style: BorderStyle.solid,
+															),
+														),
+													),
+													onTap: ()
+													{
+														setState(()
+														{
+															case1 = false;
+															case2 = true;
+															case3 = false;
+															case4 = true;
+															case5 = false;
+															case6 = true;
+															case7 = true;
+															case8 = true;
+															case9 = false;
+															case10 = false;
+															case11 = false;
+															case12 = false;
+															case13 = false;
+															case14 = false;
+															case15 = false;
+															case16 = false;
+															left = true;
+															right = false;
+														});
+													}
+												)
+											],
+										), 
+									),
+									Positioned
+									(
+										right: width * 0.1,
+										child: Column
+										(
+											crossAxisAlignment: CrossAxisAlignment.center,
+											children: 
+											[
+												const Text("Agrees to stop", style:  const TextStyle(fontSize: 9, color: Colors.black, fontWeight: FontWeight.w400)),
+												const SizedBox(height: 5),
+												GestureDetector
+												(
+													child: Container
+													(
+														// margin: EdgeInsets.only(right: 1),
+														width: 15,
+														height: 15,
+														decoration: BoxDecoration
+														(
+															color :case13 ? CustomColors.blue : Colors.white,
+															borderRadius: BorderRadius.circular(15),
+															border: Border.all
+															(
+																width: 2,
+																color: case13 ? CustomColors.blueBorderActive : CustomColors.grey,
+																style: BorderStyle.solid,
+															),
+														),
+													),
+													onTap: ()
+													{
+														setState(()
+														{
+															case1 = false;
+															case2 = true;
+															case3 = false;
+															case4 = true;
+															case5 = false;
+															case6 = true;
+															case7 = false;
+															case8 = true;
+															case9 = false;
+															case10 = false;
+															case11 = false;
+															case12 = false;
+															case13 = true;
+															case14 = false;
+															case15 = false;
+															case16 = false;
+															right = true;
+															left = false;
+														});
+													}
+												)
+											]
+										),
+									)
+								],
 							),
 							GestureDetector
 							(
 								child: Container
 								(
-									margin:  EdgeInsets.only(top: 10, right: 38),
+									margin:  const EdgeInsets.only(top: 10, right: 38),
 									width: 125,
 									height: 40,
 									child: Row
@@ -629,7 +689,7 @@ class _PathWayState extends State<PathWay>
 										mainAxisAlignment: MainAxisAlignment.center,
 										children: 
 										[
-											Text("Refuses to fail", style: TextStyle(fontSize: 8)),
+											const Text("Refuses or fails", style: const TextStyle(fontSize: 8)),
 											const SizedBox(width: 5),
 											Container
 											(
@@ -673,121 +733,137 @@ class _PathWayState extends State<PathWay>
 								}
 							),
 							const SizedBox(height: 40),
-							CustomPaint(painter: LineDashedPainter(case12 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, (height / 60), 10, height * 0.25)),
-							Row
+							// CustomPaint(painter: LineDashedPainter(case12 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, (height / 60), 10, height * 0.25)),
+							CustomPaint(painter: LineDashedPainter(case12 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, (height / 60), 10, 150)),
+							Stack
 							(
-								mainAxisAlignment: MainAxisAlignment.center,
 								children: 
 								[
-									CustomPaint(painter: LineDashedPainter(case1 || case3 || case5 || case7 || case9 ? CustomColors.blueBorderActive : CustomColors.grey, -(width / 14), 0, -(width / 14), height * 0.45)),
-									// CustomPaint(painter: LineDashedPainter(case9 ? CustomColors.blueBorderActive : CustomColors.grey, width / 11 , 0, -(width / 17) , 0)),
-									CustomPaint(painter: LineDashedPainter(case9 ? CustomColors.blueBorderActive : CustomColors.grey, width / 10 , 0, -(width / 14) , 0)),
-									Column
+									Row
 									(
+										mainAxisAlignment: MainAxisAlignment.center,
 										children: 
 										[
-											const Padding(padding: EdgeInsets.only(right: 15), child: Text("Pass", style: TextStyle(fontSize: 8),)),
-											const SizedBox(height: 5),
-											GestureDetector
-											(
-												child: Container
-												(
-													margin: EdgeInsets.only(right: 1, bottom: (height / 54)),
-													width: 15,
-													height: 15,
-													decoration: BoxDecoration
-													(
-														color :case9 ? CustomColors.blueActive :Colors.white,
-														borderRadius: BorderRadius.circular(15),
-														border: Border.all
-														(
-															width: 2,
-															color: case9 ? CustomColors.blueBorderActive : CustomColors.grey,
-															style: BorderStyle.solid,
-														),
-													),
-												),
-												onTap: ()
-												{
-													setState(()
-													{
-														case1 = false;
-														case2 = true;
-														case3 = false;
-														case4 = true;
-														case5 = false;
-														case6 = true;
-														case7 = false;
-														case8 = true;
-														case9 = true;
-														case10 = true;
-														case11 = false;
-														case12 = false;
-														case13 = false;
-														case14 = false;
-														case15 = false;
-														case16 = false;
-														left = true;
-														right = false;
-													});
-												}
-											)
+											// CustomPaint(painter: LineDashedPainter(case1 || case3 || case5 || case7 || case9 ? CustomColors.blueBorderActive : CustomColors.grey, -(width / 5), 0, -(width / 5), height * 0.45)),
+											CustomPaint(painter: LineDashedPainter(case1 || case3 || case5 || case7 || case9 ? CustomColors.blueBorderActive : CustomColors.grey, -(width / 5), 0, -(width / 5), 350)),
+											CustomPaint(painter: LineDashedPainter(case9 ? CustomColors.blueBorderActive : CustomColors.grey, width / 5 , 0, -(width / 5) , 0)),
+											button2("Arrange formal driving assessment", width, case10, "8"),
+											CustomPaint(painter: LineDashedPainter(case15 ? CustomColors.blueBorderActive : CustomColors.grey, width / 4, 0, 0, 0)),
+											// CustomPaint(painter: LineDashedPainter(case11 || case13 || case15 ? CustomColors.blueBorderActive :  CustomColors.grey, width / 4, 0, width / 4, height * 0.23))
+											CustomPaint(painter: LineDashedPainter(case11 || case13 || case15 ? CustomColors.blueBorderActive :  CustomColors.grey, width / 4, 0, width / 4, 135))
 										],
 									),
-									button2("Arrange formal driving assessment", width, case10, "8"),
-									// CustomPaint(painter: LineDashedPainter( case15 ? CustomColors.blueBorderActive : CustomColors.grey, width / 4.2, 0, 0, 0)),
-									CustomPaint(painter: LineDashedPainter(case15 ? CustomColors.blueBorderActive : CustomColors.grey, width / 4.6, 0, 0, 0)),
-									Column
+									Positioned
 									(
-										children: 
-										[
-											const Padding(padding: EdgeInsets.only(left: 10, bottom: 10), child: Text("Agrees  to  stop", style: TextStyle(fontSize: 8),)),
-											GestureDetector
-											(
-												child: Container
+										left: width * 0.2,
+										child: Column
+										(
+											children: 
+											[
+												const Text("Pass", style: TextStyle(fontSize: 8),),
+												const SizedBox(height: 5),
+												GestureDetector
 												(
-													margin: const EdgeInsets.only(left: 10, bottom: 20),
-													width: 15,
-													height: 15,
-													decoration: BoxDecoration
+													child: Container
 													(
-														color :case15 ? CustomColors.blueActive :Colors.white,
-														borderRadius: BorderRadius.circular(15),
-														border: Border.all
+														// margin: EdgeInsets.only(right: 1, bottom: (height / 50)),
+														width: 15,
+														height: 15,
+														decoration: BoxDecoration
 														(
-															width: 2,
-															color: case15 ? CustomColors.blueBorderActive : CustomColors.grey,
-															style: BorderStyle.solid,
+															color :case9 ? CustomColors.blueActive :Colors.white,
+															borderRadius: BorderRadius.circular(15),
+															border: Border.all
+															(
+																width: 2,
+																color: case9 ? CustomColors.blueBorderActive : CustomColors.grey,
+																style: BorderStyle.solid,
+															),
 														),
 													),
-												),
-												onTap: ()
-												{
-													setState(()
+													onTap: ()
 													{
-														case1 = false;
-														case5 = false;
-														case4 = true;
-														case2 = true;
-														case6 = true;
-														case7 = false;
-														case8 = true;
-														case9 = false;
-														case10 = true;
-														case11 = false;
-														case12 = false;
-														case13 = false;
-														case14 = false;
-														case15 = true;
-														case16 = false;
-														right = true;
-														left = false;
-													});
-												}
-											)
-										],
+														setState(()
+														{
+															case1 = false;
+															case2 = true;
+															case3 = false;
+															case4 = true;
+															case5 = false;
+															case6 = true;
+															case7 = false;
+															case8 = true;
+															case9 = true;
+															case10 = true;
+															case11 = false;
+															case12 = false;
+															case13 = false;
+															case14 = false;
+															case15 = false;
+															case16 = false;
+															left = true;
+															right = false;
+														});
+													}
+												)
+											]
+										)
 									),
-									CustomPaint(painter: LineDashedPainter(case11 || case13 || case15 ? CustomColors.blueBorderActive :  CustomColors.grey, width / 16, 0, width / 16, height * 0.23))
+									Positioned
+									(
+										right: width * 0.1,
+										child: Column
+										(
+											children: 
+											[
+												const Text("Agrees  to  stop", style: const TextStyle(fontSize: 8),),
+												const SizedBox(height: 5),
+												GestureDetector
+												(
+													child: Container
+													(
+														// margin: const EdgeInsets.only(left: 10, bottom: 20),
+														width: 15,
+														height: 15,
+														decoration: BoxDecoration
+														(
+															color :case15 ? CustomColors.blueActive :Colors.white,
+															borderRadius: BorderRadius.circular(15),
+															border: Border.all
+															(
+																width: 2,
+																color: case15 ? CustomColors.blueBorderActive : CustomColors.grey,
+																style: BorderStyle.solid,
+															),
+														),
+													),
+													onTap: ()
+													{
+														setState(()
+														{
+															case1 = false;
+															case5 = false;
+															case4 = true;
+															case2 = true;
+															case6 = true;
+															case7 = false;
+															case8 = true;
+															case9 = false;
+															case10 = true;
+															case11 = false;
+															case12 = false;
+															case13 = false;
+															case14 = false;
+															case15 = true;
+															case16 = false;
+															right = true;
+															left = false;
+														});
+													}
+												)
+											],
+										),
+									)
 								],
 							),
 							// SizedBox(height: 40),
@@ -795,7 +871,7 @@ class _PathWayState extends State<PathWay>
 							(
 								child: Container
 								(
-									margin:  EdgeInsets.only(top: 10, right: 37),
+									margin:  const EdgeInsets.only(top: 10, right: 40),
 									width: 125,
 									height: 40,
 									child: Row
@@ -803,7 +879,7 @@ class _PathWayState extends State<PathWay>
 										mainAxisAlignment: MainAxisAlignment.center,
 										children: 
 										[
-											Text("Refuses to fail", style: TextStyle(fontSize: 8),),
+											const Text("Refuses or fails", style: TextStyle(fontSize: 8),),
 											const SizedBox(width: 5),
 											Container
 											(
@@ -849,72 +925,86 @@ class _PathWayState extends State<PathWay>
 								}
 							),
 							const SizedBox(height: 40),
-							CustomPaint(painter: LineDashedPainter(case14 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, (height / 60), 10, height * 0.22)),
-							Row
+							// CustomPaint(painter: LineDashedPainter(case14 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, 10, 10, 150)),
+							CustomPaint(painter: LineDashedPainter(case14 ? CustomColors.blueBorderActive :  CustomColors.grey, 10, 10, 10, 150)),
+							Stack
 							(
-								mainAxisAlignment: MainAxisAlignment.center,
-								children: 
+								children:
 								[
-									button2("Formal DMV process", width, case12, "9"),
-									CustomPaint(painter: LineDashedPainter(case16 ? CustomColors.blueBorderActive :  CustomColors.grey, width / 3.9, 0, 0, 0)),
-									Column
+									Row
 									(
+										mainAxisAlignment: MainAxisAlignment.center,
 										children: 
 										[
-											const Padding(padding: EdgeInsets.only(left: 10, bottom: 10), child: Text("Agrees  to  stop", style: TextStyle(fontSize: 8),)),
-											GestureDetector
-											(
-												child: Container
-												(
-													margin: const EdgeInsets.only(left: 10, bottom: 20),
-													width: 15,
-													height: 15,
-													decoration: BoxDecoration
-													(
-														color : case16 ? CustomColors.blueActive : Colors.white,
-														borderRadius: BorderRadius.circular(15),
-														border: Border.all
-														(
-															width: 2,
-															color: case16 ? CustomColors.blueBorderActive : CustomColors.grey,
-															style: BorderStyle.solid,
-														),
-													),
-												),
-												onTap: ()
-												{
-													setState(()
-													{
-														case1 = false;
-														case5 = false;
-														case4 = true;
-														case2 = true;
-														case6 = true;
-														case7 = false;
-														case8 = true;
-														case9 = false;
-														case10 = true;
-														case11 = false;
-														case12 = true;
-														case13 = false;
-														case14 = false;
-														case15 = false;
-														case16 = true;
-														right = true;
-														left = false;
-													});
-												}
-											)
+											button2("Formal DMV process", width, case12, "9"),
+											// CustomPaint(painter: LineDashedPainter(case16 ? CustomColors.blueBorderActive :  CustomColors.grey, 105, 0, 0, 0)),
+											CustomPaint(painter: LineDashedPainter(case16 ? CustomColors.blueBorderActive : CustomColors.grey, width / 4, 0, 0, 0)),
+											CustomPaint(painter: LineDashedPainter(case11 || case13 || case15 || case16 ? CustomColors.blueBorderActive :  CustomColors.grey, width / 4, 0, width / 4, 200))
+											// CustomPaint(painter: LineDashedPainter(case11 || case13 || case15 || case16 ? CustomColors.blueBorderActive :  CustomColors.grey, width / 4, 0, width / 4, height * 0.3))
 										],
 									),
-									CustomPaint(painter: LineDashedPainter(case11 || case13  || case15 || case16 ? CustomColors.blueBorderActive :  CustomColors.grey, width / 10, 0, width / 10, height * 0.3))
-								],
+									Positioned
+									(
+										right: width * 0.1,
+										child: Column
+										(
+											children: 
+											[
+												const Text("Agrees  to  stop", style: TextStyle(fontSize: 8),),
+												const SizedBox(height: 5),
+												GestureDetector
+												(
+													child: Container
+													(
+														// margin: const EdgeInsets.only(left: 10, bottom: 20),
+														width: 15,
+														height: 15,
+														decoration: BoxDecoration
+														(
+															color : case16 ? CustomColors.blueActive : Colors.white,
+															borderRadius: BorderRadius.circular(15),
+															border: Border.all
+															(
+																width: 2,
+																color: case16 ? CustomColors.blueBorderActive : CustomColors.grey,
+																style: BorderStyle.solid,
+															),
+														),
+													),
+													onTap: ()
+													{
+														setState(()
+														{
+															case1 = false;
+															case5 = false;
+															case4 = true;
+															case2 = true;
+															case6 = true;
+															case7 = false;
+															case8 = true;
+															case9 = false;
+															case10 = true;
+															case11 = false;
+															case12 = true;
+															case13 = false;
+															case14 = false;
+															case15 = false;
+															case16 = true;
+															right = true;
+															left = false;
+														});
+													}
+												)
+											],
+										),
+									)
+								]
 							),
 							GestureDetector
 							(
 								child: Container
 								(
-									margin:  EdgeInsets.only(top: 10, right: 51),
+									margin:  const EdgeInsets.only(top: 10, right: 51),
 									width: 200,
 									height: 40,
 									child: Row
@@ -922,7 +1012,7 @@ class _PathWayState extends State<PathWay>
 										mainAxisAlignment: MainAxisAlignment.center,
 										children: 
 										[
-											Text("Refuses to comply", style: TextStyle(fontSize: 8),),
+											const Text("Refuses to comply", style: TextStyle(fontSize: 8),),
 											const SizedBox(width: 5),
 											Container
 											(
@@ -978,7 +1068,7 @@ class _PathWayState extends State<PathWay>
 								children: 
 								[
 									button3("Reassess periodically", width, left),
-									button3("Seniors stops driving", width, right)
+									button3("Senior stops driving", width, right)
 								],
 							),
 							const SizedBox(height: 20),
@@ -988,7 +1078,7 @@ class _PathWayState extends State<PathWay>
 		
 			) 
 		);
-  	}
+		}
 
 	Widget connector(width, isTrue, value, text)
 	{
@@ -996,7 +1086,7 @@ class _PathWayState extends State<PathWay>
 		(
 			child: Container
 			(
-				margin:  EdgeInsets.only(top: 10),
+				margin:  const EdgeInsets.only(top: 10),
 				width: 125,
 				height: 40,
 				child: Row
@@ -1004,7 +1094,7 @@ class _PathWayState extends State<PathWay>
 					mainAxisAlignment: MainAxisAlignment.center,
 					children: 
 					[
-						Text(text, style: TextStyle(fontSize: 8),),
+						Text(text, style: const TextStyle(fontSize: 8),),
 						const SizedBox(width: 5),
 						Container
 						(
@@ -1040,63 +1130,14 @@ class _PathWayState extends State<PathWay>
 				case16 = false;
 				left = false;
 				right = false;
-				
-				switch (value) 
-				{
-					case "case2":
-					case2 = true;
-					break;
+				case2 = true;
+				case4 = true;
+				case6 = true;
 
-					case "case4":
-					case2 = true;
-					case4 = true;
-					break;
 
-					case "case6":
-					case2 = true;
-					case4 = true;
-					case6 = true;
-					break;
-
-					case "case8":
-					case2 = true;
-					case4 = true;
-					case6 = true;
-					case8 = true;
-					break;
-
-                    case "case10":
-					case2 = true;
-					case4 = true;
-					case6 = true;
-					case8 = true;
-					case10 = true;
-					break;
-
-					case "case12":
-					case2 = true;
-					case4 = true;
-					case6 = true;
-					case8 = true;
-					case10 = true;
-					case12 = true;
-					break;
-
-					case "case14":
-					case2 = true;
-					case4 = true;
-					case6 = true;
-					case8 = true;
-					case10 = true;
-					case12 = true;
-					case14 = true;
-					break;
-
-				  	default:
-				}
 
 				setState(() {
-				  
+					
 				});
 			}
 		);
@@ -1104,7 +1145,7 @@ class _PathWayState extends State<PathWay>
 
 	Widget button(text, isActive)
 	{
-	  	var width = MediaQuery.of(context).size.width / 2.6;
+			var width = MediaQuery.of(context).size.width / 2.6;
 		var height = MediaQuery.of(context).size.height / 14;
 
 		return SizedBox
@@ -1141,10 +1182,11 @@ class _PathWayState extends State<PathWay>
 
 	Widget button2(text, width, isTrue, popUpText)
 	{
+		
 		return SizedBox
 		(
-			width: MediaQuery.of(context).size.width / 2.5,
-			height: MediaQuery.of(context).size.height / 14,
+			width: 144,
+			height: 46,
 			child:  ElevatedButton
 			(
 				child: Text
@@ -1247,7 +1289,7 @@ class _PathWayState extends State<PathWay>
 
 	Widget binaryText(text, width)
 	{
-		return Text(text, style:  TextStyle(fontSize: 8, color: Colors.black, fontWeight: FontWeight.w400));
+		return Text(text, style:  const TextStyle(fontSize: 9, color: Colors.black, fontWeight: FontWeight.w400));
 	}
 }
 
@@ -1257,7 +1299,7 @@ class LineDashedPainter extends CustomPainter
 	Color color;
 	double x1, x2, y1, y2;
 
-  	LineDashedPainter(this.color, this.x1, this.y1, this.x2, this.y2);
+		LineDashedPainter(this.color, this.x1, this.y1, this.x2, this.y2);
 
 	@override
 	void paint(Canvas canvas, Size size)
@@ -1277,12 +1319,12 @@ class LineDashedPainter extends CustomPainter
 		
 		while (max >= 0)
 		{
-	  		canvas.drawLine(Offset(x1, y1), Offset(x2, y2), paint);
-	  		final space = (dashSpace + dashWidth);
-	  		// startY += space;
-	  		max -= space;
+				canvas.drawLine(Offset(x1, y1), Offset(x2, y2), paint);
+				final space = (dashSpace + dashWidth);
+				// startY += space;
+				max -= space;
 		}
-  	}
+		}
 
 	@override
 	bool shouldRepaint(CustomPainter oldDelegate) => false;
@@ -1293,12 +1335,12 @@ class PathPainter extends CustomPainter
 {
 	double x1, y1, x2, y2, x3, y3;
 
-  	PathPainter(this.x1, this.y1, this.x2, this.y2, this.x3, this.y3);
+		PathPainter(this.x1, this.y1, this.x2, this.y2, this.x3, this.y3);
 
 	@override
-  	void paint(Canvas canvas, Size size) 
+		void paint(Canvas canvas, Size size) 
 	{
-    	Paint paint = Paint()
+			Paint paint = Paint()
 		..color = Colors.red
 		..style = PaintingStyle.stroke
 		..strokeWidth = 2.0;
@@ -1308,9 +1350,9 @@ class PathPainter extends CustomPainter
 		path.moveTo(x3, y3);
 		path.conicTo(x1, y1, x2, y2, 850);
 		canvas.drawPath(path, paint);
-  }
+	}
 
-  
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => true;
+	
+	@override
+	bool shouldRepaint(CustomPainter oldDelegate) => true;
 }

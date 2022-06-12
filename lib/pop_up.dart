@@ -1,217 +1,232 @@
+import 'package:buttonclick/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PopupBox
 {
-  int adminId = 0;
+	int adminId = 0;
 
-  warningSigns(context)
-  {
-    AlertDialog alert = AlertDialog
-      (
-        backgroundColor: Color(int.parse("0xffF6F6F6")),
-        content: StatefulBuilder
-          (
-            builder: (BuildContext context, StateSetter setState)
-            {
-              return  SingleChildScrollView
-                (
-                  child: Column
-                    (
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>
-                      [
-                        Align
-                          (
-                            alignment: Alignment.topRight,
-                            child: IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.close))
-                        ),
-                        Row
-                          (
-                          // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: const
-                          [
-                            Text
-                              (
-                              "Warning Signs\n",
-                              style: TextStyle
-                                (
-                                  fontWeight: FontWeight.bold
-                              ),
-                              // textAlign: TextAlign.center,
-                            ),
-                            Text
-                              (
-                              "",
-                              style: TextStyle
-                                (
-                                  fontWeight: FontWeight.bold
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                        const Text("Driging into other lanes \nStradding lanes \nMaking sudden lane changes \nIgnoring or missing stop sigs and traffic signals \nBraking or stopping abruptly without cause \nAccelrating suddenly without reason \nCoasting to a near stop amind moving traffic \nPressing simultaneoulsy on the brake and accelerator pedals \nDifficulty seeing pedestarins, objects and other vehicles \nIncreasinf level of anxiety while driving \nDriving significanltey slower than th posted or general speed \nBacking up after missing an exit or turn \nDifficult reacting quickly and/or processing multiple stimuli \nProblems with back/neck flexibility and turning to see around car \nGetting lost or disoriented easliy, even in familar places \nFailing to use turn signals or signals on without changing lanes \nIncreased 'close calls' and 'near misses' \nTwo or more traffic citations or warnins in the past two years \nDents and scrapes on their car or on surrounding objects",
-                          style: TextStyle
-                            (
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                            // letterSpacing: 0.5,
-                            height: 1.5,
-                            // wordSpacing: 1.5
-                          ),
-                        )
-                      ]
-                  )
-              );
-            }
-        )
-    );
+  	warningSigns(context)
+  	{
+    	AlertDialog alert = AlertDialog
+      	(
+			shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+			backgroundColor: CustomColors.white,
+			content: StatefulBuilder
+			(
+				builder: (BuildContext context, StateSetter setState)
+				{
+					return  SingleChildScrollView
+					(
+							child: Column
+							(
+								mainAxisSize: MainAxisSize.min,
+								children: <Widget>
+								[
+									Align
+									(
+										alignment: Alignment.topRight,
+										child: IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.close))
+									),
+									Row
+									(
+										children: const
+										[
+											Text
+											(
+												"Warning Signs\n",
+												style: TextStyle(fontWeight: FontWeight.bold),
+											),
+											Text
+											(
+												"",
+												style: TextStyle(fontWeight: FontWeight.bold),
+												textAlign: TextAlign.center,
+											),
+										],
+									),
+									const Text
+									(
+										"Driging into other lanes \nStradding lanes \nMaking sudden lane changes \nIgnoring or missing stop sigs and traffic signals \nBraking or stopping abruptly without cause \nAccelrating suddenly without reason \nCoasting to a near stop amind moving traffic \nPressing simultaneoulsy on the brake and accelerator pedals \nDifficulty seeing pedestarins, objects and other vehicles \nIncreasinf level of anxiety while driving \nDriving significanltey slower than th posted or general speed \nBacking up after missing an exit or turn \nDifficult reacting quickly and/or processing multiple stimuli \nProblems with back/neck flexibility and turning to see around car \nGetting lost or disoriented easliy, even in familar places \nFailing to use turn signals or signals on without changing lanes \nIncreased 'close calls' and 'near misses' \nTwo or more traffic citations or warnins in the past two years \nDents and scrapes on their car or on surrounding objects",
+										style: TextStyle
+										(
+											fontWeight: FontWeight.w400,
+											fontSize: 12,
+											height: 1.5,
+										),
+									)
+								]
+							)
+              		);
+            	}
+        	)
+    	);
 
-    showDialog
-      (
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context)
-        {
-          return alert;
-        }
-    );
-  }
+    	showDialog
+      	(
+			context: context,
+			barrierDismissible: false,
+			builder: (BuildContext context)
+			{
+				return alert;
+			}
+    	);
+  	}
 
-  reviewRegulation(context)
-  {
-    AlertDialog alert = AlertDialog
-      (
-        backgroundColor: Color(int.parse("0xffF6F6F6")),
-        content: StatefulBuilder
-          (
-            builder: (BuildContext context, StateSetter setState)
-            {
-              return  Column
-                (
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children:  <Widget>
-                  [
-					  Align
-					  (
-						  alignment: Alignment.topRight,
-						  child: IconButton
-						  (
-							  icon: const Icon(Icons.close),
-							  onPressed: ()
-							  {
-								  Navigator.pop(context);
-							  },
-						  )
-					  ),
-                    const SizedBox(height: 10),
-                    const Text
-                      (
-                      "Elderly drivers and the law (CA)\n https://www.shouselaw.com/ca/defense/dmy-hearing/elderly-drivers/",
-                      style: const TextStyle
-                        (
-                          fontWeight: FontWeight.w400
-                      ),
-                      textAlign: TextAlign.center,
-                    )
-                  ]
-              );
-            }
-        )
-    );
+  	reviewRegulation(context)
+  	{
+		AlertDialog alert = AlertDialog
+		(
+			shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+			backgroundColor: CustomColors.white,
+			content: StatefulBuilder
+			(
+				builder: (BuildContext context, StateSetter setState)
+				{
+					return  Column
+					(
+						crossAxisAlignment: CrossAxisAlignment.start,
+						mainAxisSize: MainAxisSize.min,
+						children:  <Widget>
+						[
+							Align
+							(
+								alignment: Alignment.topRight,
+								child: IconButton
+								(
+									icon: const Icon(Icons.close),
+									onPressed: ()
+									{
+										Navigator.pop(context);
+									},
+								)
+							),
+							const SizedBox(height: 1),
+							const Text
+							(
+								"Elderly drivers and the law (CA",
+								style: TextStyle
+								(
+									fontWeight: FontWeight.bold
+								),
+							),
+							const SizedBox(height: 4),
+							Linkify
+							(
+								onOpen: _onOpen,
+								textScaleFactor: 1,
+								text: "https://www.shouselaw.com/ca/defense/dmy-hearing/elderly-drivers/",
+								style: TextStyle
+								(
+									// fontWeight: FontWeight.w400
+								),
+							),
+						]
+					);
+				}
+			)
+    	);
 
-    showDialog
-      (
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context)
-        {
-          return alert;
-        }
-    );
-  }
+		showDialog
+		(
+			context: context,
+			barrierDismissible: false,
+			builder: (BuildContext context)
+			{
+			return alert;
+			}
+		);
+  	}
 
-  discussDriving(context)
-  {
-    AlertDialog alert = AlertDialog
-      (
-        backgroundColor: Color(int.parse("0xffF6F6F6")),
-        content: StatefulBuilder
-          (
-            builder: (BuildContext context, StateSetter setState)
-            {
-              return SingleChildScrollView
-                (
-                  child: Column
-                    (
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.max,
-                      children:
-                       [
-						   Align
-					  (
-						  alignment: Alignment.topRight,
-						  child: IconButton
-						  (
-							  icon: const Icon(Icons.close),
-							  onPressed: ()
-							  {
-								  Navigator.pop(context);
-							  },
-						  )
-					  ),
-                        const SizedBox(height: 30),
-                        const Text
-                          (
-                          "How to talk to seniors about driving risks\n",
-                          style: const TextStyle
-                            (
-                              fontWeight: FontWeight.bold
-                          ),
-                        ),
-                        const Text("If you have concerns about an elderly adult's ability to drive, addressing them promptly could be a matter of life and death. Considering the possible consequences should help you overcome your hesitation - but that doesn't mean it will be easy. It's awkward and painful to have to inform older adults that they aren't capable of doing something as basic and essential as driving the car. For them, it can be another reminder of their growing inability to take care of themselves and manage the tasks of daily life. As difficult as it is, if you have reason to believe that the person in your care could be dangerous behind the wheel, it's important to deal with the issue sooner rather than later because later could be too late.",
-                          style: const TextStyle
-                            (
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                            // letterSpacing: 0.5,
-                            height: 1.5,
-                            // wordSpacing: 1.5
-                          ),
-                        ),
-                        const SizedBox(height: 30),
-                        const Text
-                          (
-                          "Plan ahead:",
-                          style: const TextStyle
-                            (
-                              fontWeight: FontWeight.bold
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        const Text("Elderly people face so many losses at this stage of life, they tend to rigidly control the few things they can. This struggle for control will almost certainly come into play where driving is concerned, because giving up the car keys could affect where they live, who they see, and what interests and activities they can pursue. To you, this decision is a simple matter of good sense and safety; for them, it represents the end of life as they've always known it.",
-                          style: TextStyle
-                            (
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                            // letterSpacing: 0.5,
-                            height: 1.5,
-                            // wordSpacing: 1.5
-                          ),),
-                        const SizedBox(height: 30),
-                        const Text("Prepare for More Conversations",
-                            style: TextStyle
-                              (
-                                fontWeight: FontWeight.bold
-                            )),
-                        const Text("Make sure your expectations are realistic. If you assume that one discussion will neatly resolve the matter, you're bound to be disappointed. Given how charged the driving issue is, you need to think of this as a process that will take some adjustment and fine tuning. Consider this a preliminary discussion only; a way to get the issue out on the table so it can be dealt with openly.",
-                          style: TextStyle
-                            (
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                            // letterSpacing: 0.5,
-                            height: 1.5,
+	Future<void> _onOpen(LinkableElement link) async 
+	{
+		if (await canLaunch(link.url)) 
+		{
+			await launch(link.url);
+		} 
+		else 
+		{
+			throw 'Could not launch $link';
+		}
+  	}
+
+  	discussDriving(context)
+  	{
+    	AlertDialog alert = AlertDialog
+      	(
+			shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+			backgroundColor: Color(int.parse("0xffF6F6F6")),
+			content: StatefulBuilder
+			(
+				builder: (BuildContext context, StateSetter setState)
+				{
+					return SingleChildScrollView
+					(
+						child: Column
+						(
+							crossAxisAlignment: CrossAxisAlignment.start,
+							mainAxisSize: MainAxisSize.max,
+							children:
+							[
+								Align
+								(
+									alignment: Alignment.topRight,
+									child: IconButton
+									(
+										icon: const Icon(Icons.close),
+										onPressed: ()
+										{
+											Navigator.pop(context);
+										},
+									)
+								),
+								// const SizedBox(height: 30),
+								const Text
+								(
+									"How to talk to seniors about driving risks\n",
+									style: TextStyle(fontWeight: FontWeight.bold),
+								),
+								const Text
+								(
+									"If you have concerns about an elderly adult's ability to drive, addressing them promptly could be a matter of life and death. Considering the possible consequences should help you overcome your hesitation - but that doesn't mean it will be easy. It's awkward and painful to have to inform older adults that they aren't capable of doing something as basic and essential as driving the car. For them, it can be another reminder of their growing inability to take care of themselves and manage the tasks of daily life. As difficult as it is, if you have reason to believe that the person in your care could be dangerous behind the wheel, it's important to deal with the issue sooner rather than later because later could be too late.",
+									style: TextStyle
+									(
+										fontWeight: FontWeight.w400,
+										fontSize: 12,
+										height: 1.5,
+									)
+								),
+								const SizedBox(height: 30),
+								const Text
+								(
+									"Plan ahead:",
+									style: TextStyle(fontWeight: FontWeight.bold),
+									textAlign: TextAlign.center,
+								),
+                        		const Text
+								(
+									"Elderly people face so many losses at this stage of life, they tend to rigidly control the few things they can. This struggle for control will almost certainly come into play where driving is concerned, because giving up the car keys could affect where they live, who they see, and what interests and activities they can pursue. To you, this decision is a simple matter of good sense and safety; for them, it represents the end of life as they've always known it.",
+									style: TextStyle
+									(
+										fontWeight: FontWeight.w400,
+										fontSize: 12,
+										height: 1.5
+									),
+								),
+								const SizedBox(height: 30),
+								const Text("Prepare for More Conversations",
+									style: TextStyle
+									(
+										fontWeight: FontWeight.bold
+									)),
+								const Text("Make sure your expectations are realistic. If you assume that one discussion will neatly resolve the matter, you're bound to be disappointed. Given how charged the driving issue is, you need to think of this as a process that will take some adjustment and fine tuning. Consider this a preliminary discussion only; a way to get the issue out on the table so it can be dealt with openly.",
+								style: TextStyle
+									(
+									fontWeight: FontWeight.w400,
+									fontSize: 12,
+									// letterSpacing: 0.5,
+                           			 height: 1.5,
                             // wordSpacing: 1.5
                           ),),
                         const SizedBox(height: 30),
@@ -251,7 +266,7 @@ class PopupBox
                                 fontWeight: FontWeight.bold
                             )),
                         const Text("When reflecting about driving and its role in your aging loved one's life, don't be surprised if they begin to talk about the past. He or she may reminisce about their honeymoon road trip to the Grand Canyon or recall how they saved up money for their first car or taught all the kids how to drive.",
-                          style: const TextStyle
+                          style: TextStyle
                             (
                             fontWeight: FontWeight.w400,
                             fontSize: 12,
@@ -281,6 +296,7 @@ class PopupBox
   {
     AlertDialog alert = AlertDialog
       (
+		shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         backgroundColor: Color(int.parse("0xffF6F6F6")),
         content: StatefulBuilder
           (
@@ -366,6 +382,7 @@ class PopupBox
   {
     AlertDialog alert = AlertDialog
       (
+		shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         backgroundColor: Color(int.parse("0xffF6F6F6")),
         content: StatefulBuilder
           (
@@ -429,6 +446,7 @@ class PopupBox
   {
     AlertDialog alert = AlertDialog
       (
+			shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         backgroundColor: Color(int.parse("0xffF6F6F6")),
         content: StatefulBuilder
           (
@@ -492,6 +510,7 @@ class PopupBox
   {
     AlertDialog alert = AlertDialog
       (
+		shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         backgroundColor: Color(int.parse("0xffF6F6F6")),
         content: StatefulBuilder
           (
@@ -600,6 +619,7 @@ class PopupBox
   {
     AlertDialog alert = AlertDialog
       (
+		shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         backgroundColor: Color(int.parse("0xffF6F6F6")),
         content: StatefulBuilder
           (
@@ -655,6 +675,8 @@ class PopupBox
   {
     AlertDialog alert = AlertDialog
       (
+		contentPadding: EdgeInsets.all(5),
+		shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         backgroundColor: Color(int.parse("0xffF6F6F6")),
         content: StatefulBuilder
           (
@@ -710,6 +732,8 @@ class PopupBox
   {
     AlertDialog alert = AlertDialog
       (
+		contentPadding: EdgeInsets.all(1),
+		shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         backgroundColor: Color(int.parse("0xffF6F6F6")),
         content: StatefulBuilder
           (
@@ -765,6 +789,8 @@ class PopupBox
   {
     AlertDialog alert = AlertDialog
       (
+		contentPadding: EdgeInsets.all(15),
+		shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         backgroundColor: Color(int.parse("0xffF6F6F6")),
         content: StatefulBuilder
           (
