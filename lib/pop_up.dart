@@ -1,5 +1,7 @@
 import 'package:buttonclick/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PopupBox
 {
